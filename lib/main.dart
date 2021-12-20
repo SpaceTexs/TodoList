@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list/shared/components/home_screen.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: Vx.blue600,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Home(),
     );
   }
 }
