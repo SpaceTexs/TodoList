@@ -17,10 +17,31 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TopBar(),
-            Text("What's up,Joy!"),
+            Padding(
+              padding: EdgeInsets.all(k.defaulPadding),
+              child:
+                  Text("What's up,Joy!").text.xl4.extraBold.blueGray800.make(),
+            ),
+            Subtitle(text: 'Categories'),
           ],
         ),
       ),
+    );
+  }
+}
+
+class Subtitle extends StatelessWidget {
+  const Subtitle({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: k.defaulPadding),
+      child: text.text.uppercase.xs.bold.color(k.defaultGray).make(),
     );
   }
 }
