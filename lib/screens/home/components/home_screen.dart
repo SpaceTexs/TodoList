@@ -25,7 +25,6 @@ class Home extends StatelessWidget {
                   Text("What's up,Joy!").text.xl4.extraBold.blueGray800.make(),
             ),
             Subtitle(text: 'Categories'),
-            //////////////////////////
             Categoryitem(),
             SizedBox(height: k.defaulPadding),
             Subtitle(text: 'Today\'s Tasks'),

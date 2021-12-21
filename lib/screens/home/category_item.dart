@@ -27,8 +27,8 @@ class Categoryitem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            '40 tasks'.text.make(),
-            'Business'.text.make(),
+            '40 tasks'.text.color(k.defaultGray).make(),
+            'Business'.text.xl2.make(),
           ],
         ));
   }
