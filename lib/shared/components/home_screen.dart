@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:todo_list/shared/layouts/Top_bar.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:todo_list/constantes.dart';
