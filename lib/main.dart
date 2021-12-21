@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo_list/shared/components/home_screen.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'screens/home/components/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
