@@ -22,7 +22,33 @@ class Home extends StatelessWidget {
                   Text("What's up,Joy!").text.xl4.extraBold.blueGray800.make(),
             ),
             Subtitle(text: 'Categories'),
-            Categoryitem(),
+            SizedBox(
+              height: k.defaulPadding / 2,
+            ),
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: 140,
+                minHeight: 30,
+              ),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                children: [
+                  SizedBox(
+                    width: k.defaulPadding,
+                  ),
+                  ...List.generate(
+                    5,
+                    (index) => Row(
+                      children: [
+                        CategoryItem(),
+                        SizedBox(width: k.defaulPadding),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
             SizedBox(height: k.defaulPadding),
             Subtitle(text: 'Today\'s Tasks'),
           ],

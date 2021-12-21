@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:todo_list/constantes.dart';
 
-class Categoryitem extends StatelessWidget {
-  const Categoryitem({
+class CategoryItem extends StatelessWidget {
+  const CategoryItem({
     Key? key,
   }) : super(key: key);
 
@@ -20,7 +20,7 @@ class Categoryitem extends StatelessWidget {
               BoxShadow(
                 offset: Offset(0, 10),
                 blurRadius: 10,
-                spreadRadius: -10,
+                spreadRadius: -5,
                 color: Vx.gray500.withOpacity(0.1),
               ),
             ]),
@@ -28,7 +28,7 @@ class Categoryitem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             '40 tasks'.text.color(k.defaultGray).make(),
-            'Business'.text.xl2.make(),
+            'Business'.text.xl2.bold.make(),
           ],
         ));
   }
