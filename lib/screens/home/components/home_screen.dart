@@ -23,9 +23,32 @@ class Home extends StatelessWidget {
                   Text("What's up,Joy!").text.xl4.extraBold.blueGray800.make(),
             ),
             Subtitle(text: 'Categories'),
-            SizedBox(
-              height: k.defaulPadding,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: k.defaulPadding),
+              child: Container(
+                  width: 250,
+                  padding: EdgeInsets.symmetric(
+                      horizontal: k.defaulPadding, vertical: k.defaulPadding),
+                  decoration: BoxDecoration(
+                      color: Vx.white,
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 10),
+                          blurRadius: 10,
+                          spreadRadius: -10,
+                          color: Vx.gray500.withOpacity(0.1),
+                        ),
+                      ]),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      '40 tasks'.text.make(),
+                      'Business'.text.make(),
+                    ],
+                  )),
             ),
+            SizedBox(height: k.defaulPadding),
             Subtitle(text: 'Today\'s Tasks'),
           ],
         ),
