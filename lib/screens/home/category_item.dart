@@ -20,7 +20,7 @@ class Categoryitem extends StatelessWidget {
               BoxShadow(
                 offset: Offset(0, 10),
                 blurRadius: 10,
-                spreadRadius: -10,
+                spreadRadius: -5,
                 color: Vx.gray500.withOpacity(0.1),
               ),
             ]),
