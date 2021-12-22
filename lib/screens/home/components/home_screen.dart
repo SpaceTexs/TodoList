@@ -30,6 +30,62 @@ class Home extends StatelessWidget {
             CategoryList(),
             SizedBox(height: k.defaulPadding),
             Subtitle(text: 'Today\'s Tasks'),
+            SizedBox(height: k.defaulPadding / 2),
+
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ...List.generate(
+                      10,
+                      (index) => TaskItem(),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TaskItem extends StatelessWidget {
+  const TaskItem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: k.defaulPadding),
+      child: Container(
+        padding: EdgeInsets.all(k.defaulPadding),
+        decoration: BoxDecoration(
+          color: Vx.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, 4),
+              blurRadius: 18,
+              spreadRadius: -5,
+              color: Vx.blueGray200,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 24,
+              height: 24,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  border: Border.all(width: 2, color: Colors.blue),
+                  borderRadius: BorderRadius.circular(24)),
+            ),
+            SizedBox(width: k.defaulPadding),
+            'Daily meeting with team'.text.size(18).medium.coolGray600.make(),
           ],
         ),
       ),
