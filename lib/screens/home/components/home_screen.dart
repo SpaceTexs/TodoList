@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list/screens/home/category_item.dart';
+import 'package:todo_list/screens/home/components/category_list.dart';
 import 'package:todo_list/shared/components/subtitle.dart';
 import 'package:todo_list/shared/layouts/Top_bar.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -16,46 +17,39 @@ class Home extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TopBar(),
-            Padding(
-              padding: EdgeInsets.all(k.defaulPadding),
-              child:
-                  Text("What's up,Joy!").text.xl4.extraBold.blueGray800.make(),
+            Title(
+              text: "What's up,Joy!",
             ),
             Subtitle(text: 'Categories'),
-            SizedBox(
-              height: k.defaulPadding / 2,
-            ),
+
+            // SizedBox(
+            //   height: k.defaulPadding / 2,
+            //  ),
 
             ///foi criado os box e colocados em um listview horizontal
-            SizedBox(
-              height: 140,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                children: [
-                  SizedBox(
-                    width: k.defaulPadding,
-                  ),
-
-                  ///cria uma lista de 5 CategoryItem()
-                  ...List.generate(
-                    5,
-                    (index) => Row(
-                      children: [
-                        CategoryItem(),
-                        SizedBox(width: k.defaulPadding / 2),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: k.defaulPadding / 2),
-                ],
-              ),
-            ),
+            CategoryList(),
             SizedBox(height: k.defaulPadding),
             Subtitle(text: 'Today\'s Tasks'),
           ],
         ),
       ),
+    );
+  }
+}
+
+class Title extends StatelessWidget {
+  const Title({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(k.defaulPadding),
+      child: text.text.xl4.extraBold.blueGray800.make(),
     );
   }
 }

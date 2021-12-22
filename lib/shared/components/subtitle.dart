@@ -13,7 +13,7 @@ class Subtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: k.defaulPadding),
-      child: text.text.uppercase.xs.bold.color(k.defaultGray).make(),
+      child: text.text.uppercase.bold.color(k.defaultGray).make(),
     );
   }
 }

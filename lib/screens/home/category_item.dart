@@ -11,29 +11,6 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-<<<<<<< HEAD
-        width: 220,
-        padding: EdgeInsets.symmetric(
-            horizontal: k.defaulPadding, vertical: k.defaulPadding),
-        decoration: BoxDecoration(
-            color: Vx.white,
-            borderRadius: BorderRadius.circular(24),
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, 10),
-                blurRadius: 10,
-                spreadRadius: -5,
-                color: Vx.gray500.withOpacity(0.1),
-              ),
-            ]),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            '40 tasks'.text.color(k.defaultGray).make(),
-            'Business'.text.xl2.make(),
-          ],
-        ));
-=======
       width: 220,
       height: 110,
 
@@ -62,12 +39,11 @@ class CategoryItem extends StatelessWidget {
 
           ///foi criada a progressBar que fica dentro do boxItem no casoCategoryItem()
           ProgressBar(
-            color: Vx.purple300,
-            percent: 80,
+            color: Vx.lightBlue500,
+            percent: 10,
           ),
         ],
       ),
     );
->>>>>>> origin/develop_bruno
   }
 }
