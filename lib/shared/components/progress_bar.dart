@@ -16,6 +16,7 @@ class ProgressBar extends StatefulWidget {
 }
 
 class _ProgressBarState extends State<ProgressBar> {
+  ///criada essa finalWidth para fazer o calculo da porcentagem no progressBar
   final double finalWidth = 172;
 
   @override
@@ -31,6 +32,8 @@ class _ProgressBarState extends State<ProgressBar> {
             borderRadius: BorderRadius.circular(4),
           ),
         ),
+
+        ///esse AnimatedContainer responsavel pelo funcionamento da progressBar com esse calculo  width: widget.percent * finalWidth / 100
         AnimatedContainer(
           duration: Duration(milliseconds: 300),
           curve: Curves.easeInOut,
