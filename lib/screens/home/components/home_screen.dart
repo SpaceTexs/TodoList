@@ -25,11 +25,10 @@ class Home extends StatelessWidget {
             SizedBox(
               height: k.defaulPadding / 2,
             ),
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: 140,
-                minHeight: 30,
-              ),
+
+            ///foi criado os box e colocados em um listview horizontal
+            SizedBox(
+              height: 140,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -37,15 +36,18 @@ class Home extends StatelessWidget {
                   SizedBox(
                     width: k.defaulPadding,
                   ),
+
+                  ///cria uma lista de 5 CategoryItem()
                   ...List.generate(
                     5,
                     (index) => Row(
                       children: [
                         CategoryItem(),
-                        SizedBox(width: k.defaulPadding),
+                        SizedBox(width: k.defaulPadding / 2),
                       ],
                     ),
                   ),
+                  SizedBox(width: k.defaulPadding / 2),
                 ],
               ),
             ),
