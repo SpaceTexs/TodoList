@@ -41,26 +41,33 @@ class _TaskListState extends State<TaskList> {
     );
   }
 
-  Row buildSecondaryBackground() {
-    return Row(
-      children: [
-        SvgPicture.asset('assets/icons/trash.svg'),
-        Text('The task was deleted'),
-        Spacer(),
-        OutlinedButton(
-          onPressed: () {},
-          child: 'Undo'.toUpperCase().text.bold.blueGray700.make(),
-          style: OutlinedButton.styleFrom(
-              primary: Vx.red500,
-              side: BorderSide(
-                width: 2,
-                color: Vx.gray200.withOpacity(0.75),
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              )),
-        ),
-      ],
+  Widget buildSecondaryBackground() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: k.defaulPadding),
+      child: Row(
+        children: [
+          SvgPicture.asset(
+            'assets/icons/trash.svg',
+            color: Vx.blueGray400,
+          ),
+          SizedBox(width: 10),
+          'The task was deleted'.text.xl.blueGray400.make(),
+          Spacer(),
+          OutlinedButton(
+            onPressed: () {},
+            child: 'Undo'.toUpperCase().text.bold.blueGray700.make(),
+            style: OutlinedButton.styleFrom(
+                primary: Vx.red500,
+                side: BorderSide(
+                  width: 2,
+                  color: Vx.gray200.withOpacity(0.75),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                )),
+          ),
+        ],
+      ),
     );
   }
 
