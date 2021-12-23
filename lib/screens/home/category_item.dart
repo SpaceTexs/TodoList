@@ -12,7 +12,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 220,
-      height: 110,
+      height: 126,
 
       ///o height nesse caso controla a altura do box
       padding: EdgeInsets.symmetric(

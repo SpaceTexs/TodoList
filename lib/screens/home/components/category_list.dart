@@ -10,7 +10,7 @@ class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: 160,
       child: ListView(
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
