@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_list/constantes.dart';
+import 'package:velocity_x/velocity_x.dart';
 import 'task_item.dart';
 
 class TaskList extends StatefulWidget {
@@ -25,12 +26,7 @@ class _TaskListState extends State<TaskList> {
                     direction: DismissDirection.endToStart,
                     confirmDismiss: confirmRemove,
                     background: Container(),
-                    secondaryBackground: Row(
-                      children: [
-                        SvgPicture.asset('assets/icons/trash.svg'),
-                        Text('The task was deleted'),
-                      ],
-                    ),
+                    secondaryBackground: buildSecondaryBackground(),
                   ),
                   SizedBox(
                     height: 10,
@@ -42,6 +38,29 @@ class _TaskListState extends State<TaskList> {
           ],
         ),
       ),
+    );
+  }
+
+  Row buildSecondaryBackground() {
+    return Row(
+      children: [
+        SvgPicture.asset('assets/icons/trash.svg'),
+        Text('The task was deleted'),
+        Spacer(),
+        OutlinedButton(
+          onPressed: () {},
+          child: 'Undo'.toUpperCase().text.bold.blueGray700.make(),
+          style: OutlinedButton.styleFrom(
+              primary: Vx.red500,
+              side: BorderSide(
+                width: 2,
+                color: Vx.gray200.withOpacity(0.75),
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              )),
+        ),
+      ],
     );
   }
 
