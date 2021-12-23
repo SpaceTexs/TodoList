@@ -4,5 +4,5 @@ import 'package:velocity_x/velocity_x.dart';
 class k {
   static double iconSize = 30;
   static Color defaultGray = Vx.blueGray400;
-  static const double defaulPadding = 24.0;
+  static const double defaulPadding = 30.0;
 }

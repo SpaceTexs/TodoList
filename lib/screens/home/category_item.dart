@@ -12,7 +12,7 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 220,
-      height: 110,
+      height: 126,
 
       ///o height nesse caso controla a altura do box
       padding: EdgeInsets.symmetric(
@@ -39,8 +39,8 @@ class CategoryItem extends StatelessWidget {
 
           ///foi criada a progressBar que fica dentro do boxItem no casoCategoryItem()
           ProgressBar(
-            color: Vx.purple300,
-            percent: 80,
+            color: Vx.lightBlue500,
+            percent: 10,
           ),
         ],
       ),
