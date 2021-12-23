@@ -28,6 +28,7 @@ class _TaskListState extends State<TaskList> {
                     secondaryBackground: Row(
                       children: [
                         SvgPicture.asset('assets/icons/trash.svg'),
+                        Text('The task was deleted'),
                       ],
                     ),
                   ),
