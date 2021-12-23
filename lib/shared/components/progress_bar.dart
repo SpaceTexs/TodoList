@@ -6,7 +6,7 @@ class ProgressBar extends StatefulWidget {
   final Color color;
   final double percent;
 
-  ProgressBar({
+  const ProgressBar({
     Key? key,
     required this.color,
     required this.percent,
