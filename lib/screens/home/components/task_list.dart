@@ -4,13 +4,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_list/constantes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'task_item.dart';
+import 'dart:async';
 
 class TaskList extends StatefulWidget {
   @override
-  State<TaskList> createState() => _TaskListState();
+  _TaskListState createState() => _TaskListState();
 }
 
 class _TaskListState extends State<TaskList> {
+  Completer<bool> _completer = new Completer<bool>();
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -53,7 +56,9 @@ class _TaskListState extends State<TaskList> {
           'The task was deleted'.text.xl.blueGray400.make(),
           Spacer(),
           OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              this._completer.complete(false);
+            },
             child: 'Undo'.toUpperCase().text.bold.blueGray700.make(),
             style: OutlinedButton.styleFrom(
                 primary: Vx.red500,
@@ -71,11 +76,13 @@ class _TaskListState extends State<TaskList> {
   }
 
   Future<bool> confirmRemove(DismissDirection dismissDirection) async {
-    return Future.delayed(
-        Duration(
-          seconds: 5,
-        ), () {
-      return true;
+    this._completer = new Completer<bool>();
+
+    Future.delayed(Duration(seconds: 3), () {
+      if (this._completer.isCompleted) return;
+      this._completer.complete(true);
     });
+
+    return this._completer.future;
   }
 }
