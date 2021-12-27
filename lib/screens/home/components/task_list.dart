@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_list/constantes.dart';
@@ -28,9 +29,7 @@ class _TaskListState extends State<TaskList> {
                     background: Container(),
                     secondaryBackground: buildSecondaryBackground(),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
@@ -74,9 +73,9 @@ class _TaskListState extends State<TaskList> {
   Future<bool> confirmRemove(DismissDirection dismissDirection) async {
     return Future.delayed(
         Duration(
-          seconds: 3,
+          seconds: 5,
         ), () {
-      return false;
+      return true;
     });
   }
 }
