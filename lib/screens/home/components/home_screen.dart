@@ -18,9 +18,30 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
   bool isMenuOpen = false;
   double pageScale = 1;
+  late Animation<double> _animation;
+  late AnimationController _controller;
+  Duration _duration = Duration(milliseconds: 750);
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: Duration(microseconds: 500),
+      vsync: this,
+    );
+    _animation = Tween<double>(begin: 1, end: 0.9)
+        .chain(CurveTween(curve: Curves.easeInOut))
+        .animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller!.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,45 +50,14 @@ class _HomeState extends State<Home> {
       body: Stack(
         clipBehavior: Clip.none,
         children: [
-<<<<<<< HEAD
-          AnimatedPositioned(
-            duration: Duration(milliseconds: 750),
-            curve: Curves.easeInOut,
-            width: size.width,
-            height: size.height,
-            left: isMenuOpen ? 350 : 0,
-            child: SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TopBar(
-                    onToggleMenu: () {
-                      // setState(() {
-                      //    this.isMenuOpen = !this.isMenuOpen;
-                      //  });
-                      print('object');
-                    },
-                  ),
-                  Title(
-                    text: "What's up,Joy!",
-                  ),
-                  Subtitle(text: 'Categories'),
-
-                  ///foi criado os box e colocados em um listview horizontal
-                  CategoryList(),
-                  SizedBox(height: k.defaulPadding),
-                  Subtitle(text: 'Today\'s Tasks'),
-                  SizedBox(height: k.defaulPadding / 2),
-=======
-          buildMenu(size),
-          buildPage(size),
+          buildMenuContent(size),
+          buildPageContent(size),
         ],
       ),
     );
   }
->>>>>>> origin/develop_bruno
 
-  Widget buildMenu(Size size) {
+  Widget buildMenuContent(Size size) {
     return SafeArea(
       child: Container(
         child: Container(
@@ -85,40 +75,58 @@ class _HomeState extends State<Home> {
     ).box.color(k.primaryColor).width(size.width).height(size.height).make();
   }
 
-  AnimatedPositioned buildPage(Size size) {
+  Widget buildPageContent(Size size) {
     return AnimatedPositioned(
       duration: Duration(milliseconds: 750),
       curve: Curves.easeInOut,
       width: size.width,
       height: size.height,
       left: isMenuOpen ? 330 : 0,
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TopBar(
-              onToggleMenu: () {
-                setState(() {
-                  this.isMenuOpen = !this.isMenuOpen;
-                  pageScale = isMenuOpen ? 0.7 : 1;
-                });
-              },
-            ),
-            Title(
-              text: "What's up,Joy!",
-            ),
-            Subtitle(text: 'Categories'),
+      child: ScaleTransition(
+        scale: _animation,
+        child: AnimatedContainer(
+          decoration: BoxDecoration(
+            color: k.defaultBgColor,
+            borderRadius: BorderRadius.circular(isMenuOpen ? 52 : 0),
+          ),
+          duration: isMenuOpen ? Duration(seconds: 0) : _duration,
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TopBar(
+                  onToggleMenu: () {
+                    setState(() {
+                      this.isMenuOpen
+                          ? _controller.reverse()
+                          : _controller.forward();
+                      this.isMenuOpen = !this.isMenuOpen;
+                      // pageScale = isMenuOpen ? 0.7 : 1;
+                    });
+                  },
+                ),
+                Title(
+                  text: "What's up,Joy!",
+                ),
+                Subtitle(text: 'Categories'),
 
-            ///foi criado os box e colocados em um listview horizontal
-            CategoryList(),
-            SizedBox(height: k.defaulPadding),
-            Subtitle(text: 'Today\'s Tasks'),
-            SizedBox(height: k.defaulPadding / 2),
+                ///foi criado os box e colocados em um listview horizontal
+                CategoryList(),
+                SizedBox(height: k.defaulPadding),
+                Row(
+                  children: [
+                    Subtitle(text: 'Today\'s Tasks'),
+                    // TextButton(onPressed: () async{}, child: child)
+                  ],
+                ),
+                SizedBox(height: k.defaulPadding / 2),
 
-            TaskList()
-          ],
+                TaskList()
+              ],
+            ),
+          ).animatedBox.color(k.defaultBgColor).withRounded(value: 32).make(),
         ),
-      ).animatedBox.color(k.defaultBgColor).withRounded(value: 32).make(),
+      ),
     );
   }
 }

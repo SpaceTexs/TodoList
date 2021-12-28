@@ -4,14 +4,14 @@ import 'package:todo_list/constantes.dart';
 import 'package:todo_list/screens/home/components/home_screen.dart';
 
 class TopBar extends StatelessWidget {
-  TopBar({ this.onToggleMenu});
+  TopBar({this.onToggleMenu});
 
   final VoidCallback? onToggleMenu;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: k.defaulPadding),
+      padding: EdgeInsets.symmetric(horizontal: k.defaulPadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
