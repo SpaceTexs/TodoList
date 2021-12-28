@@ -33,9 +33,10 @@ class Home extends StatelessWidget {
                 children: [
                   TopBar(
                     onToggleMenu: () {
-                      setState(() {
-                        this.isMenuOpen = !this.isMenuOpen;
-                      });
+                      // setState(() {
+                      //    this.isMenuOpen = !this.isMenuOpen;
+                      //  });
+                      print('object');
                     },
                   ),
                   Title(
